@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { NavBar } from "./nav/NavBar"
 
 export const RunHub = () => (
     <>
@@ -11,6 +12,7 @@ export const RunHub = () => (
                 if (localStorage.getItem("runHub_user")) {
                     return (
                         <>
+                            <NavBar />
                             <ApplicationViews />
                         </>
                     )
