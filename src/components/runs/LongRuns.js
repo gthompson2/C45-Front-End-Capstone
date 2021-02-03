@@ -1,7 +1,33 @@
-import React from "react"
+import React, { useContext, useEffect}from "react"
 import { RunContext } from "./RunProvider"
 import { RunCard } from "./RunCard"
 
+
+
+
 export const LongRuns = () => {
-    return ""
+    
+    const {runs, getRuns} = useContext(RunContext)
+    let longRuns = []
+    
+    useEffect(() => {
+        getRuns()
+    }, [])
+
+    longRuns = runs.filter((run)=>{
+        console.log("Run object:", run)
+        console.log("Run object type:", run.runType)
+        return run.runType === 1
+    })
+
+
+    return (
+        <div className="longRuns">
+            {
+                longRuns.map(run => {
+                    return <RunCard key={run.id} run={run} />
+                })
+            }
+        </div>
+    )
 }

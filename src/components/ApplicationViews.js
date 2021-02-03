@@ -32,7 +32,7 @@ export const ApplicationViews = () => {
                 <Route path="/runs/intervals/">
                     
                 </Route>
-                </IntervalProvider>
+            </IntervalProvider>
         </RunProvider>
         </>
     )

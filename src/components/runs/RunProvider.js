@@ -7,30 +7,17 @@ export const IntervalContext = createContext()
 export const RunProvider = (props) => {
     const [runs, setRuns] = useState([])
     
-
-    let longRuns = []
-    let shortRuns = []
-
     const getRuns = () => {
         return fetch("http://localhost:8088/runs")
         .then(res=>res.json())
         .then(setRuns)
-        .then(longRuns = runs.filter(run => {
-            if (run.runType === 1) {
-                return run
-            }
-        }))
-        .then(shortRuns = runs.filter(run => {
-            if (run.runType === 2) {
-                return run
-            }
-        }))
+        
     }
 
     
     return (
         <RunContext.Provider value={{
-            runs, getRuns, longRuns, shortRuns
+            runs, getRuns
         }}>
             {props.children}
         </RunContext.Provider>

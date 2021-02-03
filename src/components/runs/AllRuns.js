@@ -5,7 +5,7 @@ import { RunCard } from "./RunCard"
 
 export const AllRuns = () => {
     const { runs, getRuns } = useContext(RunContext)
-
+    console.log("AllRuns", runs)
     useEffect(() => {
         getRuns()
     }, [])
