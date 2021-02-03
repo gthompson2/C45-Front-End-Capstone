@@ -27,10 +27,10 @@ export const ApplicationViews = () => {
                     <LongRuns />
                 </Route>
                 <Route path="/runs/shortRuns/">
-                    
+                    <ShortRuns />
                 </Route>
                 <Route path="/runs/intervals/">
-                    
+                    <Intervals />
                 </Route>
             </IntervalProvider>
         </RunProvider>

@@ -9,14 +9,13 @@ export const LongRuns = () => {
     
     const {runs, getRuns} = useContext(RunContext)
     let longRuns = []
-    
+
     useEffect(() => {
         getRuns()
     }, [])
 
     longRuns = runs.filter((run)=>{
-        console.log("Run object:", run)
-        console.log("Run object type:", run.runType)
+        
         return run.runType === 1
     })
 
