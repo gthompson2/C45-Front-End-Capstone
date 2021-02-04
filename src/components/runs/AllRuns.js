@@ -4,8 +4,8 @@ import { RunContext } from "./RunProvider"
 import { RunCard } from "./RunCard"
 
 export const AllRuns = () => {
-    const { runs, getRuns } = useContext(RunContext)
-    console.log("AllRuns", runs)
+    const { userRuns, getRuns } = useContext(RunContext)
+    console.log("AllRuns", userRuns)
     useEffect(() => {
         getRuns()
     }, [])
@@ -13,7 +13,7 @@ export const AllRuns = () => {
     return (
         <div className="allRuns">
             {
-                runs.map(run => {
+                userRuns.map(run => {
                     return <RunCard key={run.id} run={run} />
                 })
             }
