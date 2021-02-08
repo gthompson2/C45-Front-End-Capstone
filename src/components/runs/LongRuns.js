@@ -16,6 +16,9 @@ export const LongRuns = () => {
         return run.runType === 1
     })
 
+    // the user's runs are sorted in chronological order based on their date values
+    longRuns.sort((a, b) => a.date - b.date)
+
 
     return (
         <div className="longRuns">
