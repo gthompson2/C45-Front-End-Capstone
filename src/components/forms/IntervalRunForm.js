@@ -53,7 +53,7 @@ export const IntervalRunForm = () => {
                                     // to get the string format to display to users
         interval.date = convertedDate
 
-        if (distance === undefined || pace === undefined) {
+        if (date === "" || distance === "" || pace === "") {
             console.log(interval)
             window.alert("Please fill out all form components.")
         } else if (parseFloat(distance) || parseFloat(pace)) {
@@ -94,9 +94,9 @@ export const IntervalRunForm = () => {
                         placeholder="mi"
                         aria-label="mi"
                         aria-describedby="basic-addon1"
-                        value={interval.distance}
+                        value={interval.intervalDist}
                         onChange={handleControlledInputChange}
-                        id="distance"
+                        id="intervalDist"
                     />
                     <InputGroup.Prepend>
                         <InputGroup.Text id="basic-addon1">Pace:</InputGroup.Text>
@@ -105,9 +105,9 @@ export const IntervalRunForm = () => {
                         placeholder="min/mi"
                         aria-label="min/mi"
                         aria-describedby="basic-addon1"
-                        value={interval.pace}
+                        value={interval.intervalPace}
                         onChange={handleControlledInputChange}
-                        id="pace"
+                        id="intervalPace"
                     />
                 </InputGroup>
             </label>

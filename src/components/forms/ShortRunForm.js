@@ -54,7 +54,7 @@ export const ShortRunForm = () => {
                                     // to get the string format to display to users
         shortRun.date = convertedDate
 
-        if (distance === undefined || pace === undefined) {
+        if (date === "" || distance === "" || pace === "") {
             console.log(shortRun)
             window.alert("Please fill out all form components.")
         } else if (parseFloat(distance) || parseFloat(pace)) {

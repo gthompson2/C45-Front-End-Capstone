@@ -1,11 +1,12 @@
 import React, { useContext, useEffect} from "react"
 import { useHistory } from "react-router-dom"
-import { RunContext } from "./RunProvider"
+import { RunContext, IntervalContext } from "./RunProvider"
 import { RunCard } from "./RunCard"
 
 export const AllRuns = () => {
     const { userRuns, getRuns } = useContext(RunContext)
-    console.log("AllRuns", userRuns)
+    const { userIntervals, getIntervals}  = useContext(IntervalContext)
+    console.log("AllRuns", userRuns, userIntervals)
     useEffect(() => {
         getRuns()
     }, [])
