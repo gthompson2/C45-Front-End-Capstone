@@ -25,7 +25,7 @@ export const LongRuns = () => {
                 })
             }
             <>
-                <Button variant="success">Log Long Run</Button>
+                <Button href="/forms/LongRunForm" variant="success">Log Long Run</Button>
             </>
         </div>
     )

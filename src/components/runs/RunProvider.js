@@ -21,10 +21,21 @@ export const RunProvider = (props) => {
     userRuns = runs.filter((run) => {
         return run.userId === currentUserId
     })
+
+    const addRun = (runObj) => {
+        return fetch("http://localhost:8088/runs", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(runObj)
+        })
+        .then(getRuns)
+    }
     
     return (
         <RunContext.Provider value={{
-            userRuns, getRuns
+            userRuns, getRuns, addRun
         }}>
             {props.children}
         </RunContext.Provider>
@@ -45,9 +56,20 @@ export const IntervalProvider = (props) => {
         return interval.userId === currentUserId
     })
 
+    const addInterval = (intervalObj) => {
+        return fetch("http://localhost:8088/intervals", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(intervalObj)
+        })
+        .then(getIntervals)
+    }
+
     return (
         <IntervalContext.Provider value={{
-            userIntervals, getIntervals
+            userIntervals, getIntervals, addInterval
         }}>
             {props.children}
         </IntervalContext.Provider>
