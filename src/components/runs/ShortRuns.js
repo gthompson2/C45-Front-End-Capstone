@@ -19,6 +19,7 @@ export const ShortRuns = () => {
         return run.runType === 2
     })
 
+    shortRuns.sort((a, b) => a.date - b.date)
 
     return (
         <div className="shortRuns">
@@ -28,7 +29,7 @@ export const ShortRuns = () => {
                 })
             }
             <>
-                <Button variant="success">Log Short Run</Button>
+                <Button href="/forms/ShortRunForm" variant="success">Log Short Run</Button>
             </>
         </div>
     )

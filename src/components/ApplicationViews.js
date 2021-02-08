@@ -9,6 +9,8 @@ import { LongRuns } from "./runs/LongRuns"
 import { ShortRuns } from "./runs/ShortRuns"
 import { Intervals } from "./runs/Intervals"
 import { LongRunForm } from "./forms/LongRunForm"
+import { ShortRunForm } from "./forms/ShortRunForm"
+import { IntervalRunForm } from "./forms/IntervalRunForm"
 
 export const ApplicationViews = () => {
     return (
@@ -19,6 +21,7 @@ export const ApplicationViews = () => {
 
         <RunProvider>
             <IntervalProvider>
+{/* ------------RUN LISTS------------ */}
                 <Route path="/runs">
                     <RunList />
                 </Route>
@@ -34,8 +37,15 @@ export const ApplicationViews = () => {
                 <Route path="/runs/intervals/">
                     <Intervals />
                 </Route>
+{/* ------------RUN FORMS------------ */}
                 <Route path="/forms/LongRunForm">
                     <LongRunForm />
+                </Route>
+                <Route path="/forms/ShortRunForm">
+                    <ShortRunForm />
+                </Route>
+                <Route path="/forms/IntervalRunForm">
+                    <IntervalRunForm />
                 </Route>
             </IntervalProvider>
         </RunProvider>

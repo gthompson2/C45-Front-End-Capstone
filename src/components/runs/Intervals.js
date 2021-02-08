@@ -10,6 +10,8 @@ export const Intervals = () => {
         getIntervals()
     }, [])
 
+    userIntervals.sort((a, b) => a.date - b.date)
+
     return (
         <div className="intervals">
             {
@@ -19,7 +21,7 @@ export const Intervals = () => {
                 //Button to log a run goes here
             }
                 <>
-                    <Button variant="success">Log Interval Run</Button>
+                    <Button href="/forms/IntervalRunForm" variant="success">Log Interval Run</Button>
                 </>
         </div>
     )
