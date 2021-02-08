@@ -53,6 +53,12 @@ export const LongRunForm = () => {
         const distance = longRun.distance
         const pace = longRun.pace
 
+        const convertedDate = Date.parse( new Date(date))
+        console.log(convertedDate) //if it works, save to DB this way
+                                    // and use convertedDate.toLocaleString('en-US')
+                                    // to get the string format to display to users
+        longRun.date = convertedDate
+
         if (distance === undefined || pace === undefined) {
             console.log(longRun)
             window.alert("Please fill out all form components.")
