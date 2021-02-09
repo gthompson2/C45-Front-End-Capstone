@@ -32,10 +32,17 @@ export const RunProvider = (props) => {
         })
         .then(getRuns)
     }
+
+    const deleteRun = (runId) => {
+        return fetch(`http://localhost:8088/runs/${runId}`, {
+            method: "DELETE"
+        })
+        .then(getRuns)
+    }
     
     return (
         <RunContext.Provider value={{
-            userRuns, getRuns, addRun
+            userRuns, getRuns, addRun, deleteRun
         }}>
             {props.children}
         </RunContext.Provider>
@@ -67,9 +74,16 @@ export const IntervalProvider = (props) => {
         .then(getIntervals)
     }
 
+    const deleteInterval = (intervalId) => {
+        return fetch(`http://localhost:8088/intervals/${intervalId}`, {
+            method: "DELETE"
+        })
+        .then(getIntervals)
+    }
+
     return (
         <IntervalContext.Provider value={{
-            userIntervals, getIntervals, addInterval
+            userIntervals, getIntervals, addInterval, deleteInterval
         }}>
             {props.children}
         </IntervalContext.Provider>
