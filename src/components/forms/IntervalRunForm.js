@@ -47,29 +47,38 @@ export const IntervalRunForm = () => {
         const distance = interval.intervalDist
         const pace = interval.intervalPace
 
-        const convertedDate = Date.parse( new Date(date))
-        console.log(convertedDate) //if it works, save to DB this way
-                                    // and use convertedDate.toLocaleString('en-US')
-                                    // to get the string format to display to users
-        interval.date = convertedDate
-
+        // Verify that all form sections have been filled
         if (date === "" || distance === "" || pace === "") {
             console.log(interval)
             window.alert("Please fill out all form components.")
-        } else if (parseFloat(distance) || parseFloat(pace)) {
-            if (parseFloat(distance)) {
+            // Verify that the distance variable can be converted to a number
+        } else if (!parseFloat(distance)) {
+            window.alert("You must enter a number for the distance value.")
+            // Verify that the pace variable can be converted to a number
+        } else if (!parseFloat(pace)) {
+            window.alert("You must enter a number for the pace value")
+            // Verify that the date variable is in the proper format, and that
+            // each section of the date is valid.
+        } else if (!(date.includes("/"))) {
+            window.alert("Please enter a valid date in mm/dd/yyy format.")
+        } else if (date.includes("/")) {
+            const [month, day, year] = date.split("/")
+            console.log(month, day, year)
+            if (!parseInt(month) || !parseInt(day) || !parseInt(year)) {
+                window.alert("Please enter a valid date in mm/dd/yyy format.")
+            } else if (parseInt(month) > 12 || parseInt(month) < 1 || parseInt(day) > 31 || parseInt(day) < 1) {
+                console.log("window alert should be going off")
+                window.alert("Please enter a valid date in mm/dd/yyy format.")
+            } else {
+                // If all values are entered correctly, reformat them and push to the database
+                const convertedDate = Date.parse(new Date(date))
+                interval.date = convertedDate
                 interval.intervalDist = parseFloat(distance)
-            }
-            if (parseFloat(pace)) {
                 interval.intervalPace = parseFloat(pace)
+                addInterval(interval)
+                .then(() => history.push("/runs/intervals"))
             }
-            addInterval(interval)
-            .then(() => history.push("/runs/intervals"))
-        } else {
-            addInterval(interval)
-            .then(() => history.push("/runs/intervals"))
-
-        }
+        } 
     }
 
     return (
@@ -88,7 +97,7 @@ export const IntervalRunForm = () => {
                         id="date"
                     />
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">Distance:</InputGroup.Text>
+                        <InputGroup.Text id="basic-addon1">Split Distance:</InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl
                         placeholder="mi"
@@ -99,7 +108,7 @@ export const IntervalRunForm = () => {
                         id="intervalDist"
                     />
                     <InputGroup.Prepend>
-                        <InputGroup.Text id="basic-addon1">Pace:</InputGroup.Text>
+                        <InputGroup.Text id="basic-addon1">Split Pace:</InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl
                         placeholder="min/mi"

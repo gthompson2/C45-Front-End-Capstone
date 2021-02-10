@@ -48,29 +48,38 @@ export const ShortRunForm = () => {
         const distance = shortRun.distance
         const pace = shortRun.pace
 
-        const convertedDate = Date.parse( new Date(date))
-        console.log(convertedDate) //if it works, save to DB this way
-                                    // and use convertedDate.toLocaleString('en-US')
-                                    // to get the string format to display to users
-        shortRun.date = convertedDate
-
-        if (date === "" || distance === "" || pace === "") {
+         // Verify that all form sections have been filled
+         if (date === "" || distance === "" || pace === "") {
             console.log(shortRun)
             window.alert("Please fill out all form components.")
-        } else if (parseFloat(distance) || parseFloat(pace)) {
-            if (parseFloat(distance)) {
+            // Verify that the distance variable can be converted to a number
+        } else if (!parseFloat(distance)) {
+            window.alert("You must enter a number for the distance value.")
+            // Verify that the pace variable can be converted to a number
+        } else if (!parseFloat(pace)) {
+            window.alert("You must enter a number for the pace value")
+            // Verify that the date variable is in the proper format, and that
+            // each section of the date is valid.
+        } else if (!(date.includes("/"))) {
+            window.alert("Please enter a valid date in mm/dd/yyy format.")
+        } else if (date.includes("/")) {
+            const [month, day, year] = date.split("/")
+            console.log(month, day, year)
+            if (!parseInt(month) || !parseInt(day) || !parseInt(year)) {
+                window.alert("Please enter a valid date in mm/dd/yyy format.")
+            } else if (parseInt(month) > 12 || parseInt(month) < 1 || parseInt(day) > 31 || parseInt(day) < 1) {
+                console.log("window alert should be going off")
+                window.alert("Please enter a valid date in mm/dd/yyy format.")
+            } else {
+                // If all values are entered correctly, reformat them and push to the database
+                const convertedDate = Date.parse(new Date(date))
+                shortRun.date = convertedDate
                 shortRun.distance = parseFloat(distance)
-            }
-            if (parseFloat(pace)) {
                 shortRun.pace = parseFloat(pace)
+                addRun(shortRun)
+                .then(() => history.push("/runs/shortRuns"))
             }
-            addRun(shortRun)
-            .then(() => history.push("/runs/shortRuns"))
-        } else {
-            addRun(shortRun)
-            .then(() => history.push("/runs/shortRuns"))
-
-        }
+        } 
     }
 
     return (
