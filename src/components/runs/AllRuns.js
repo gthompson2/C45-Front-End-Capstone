@@ -26,6 +26,7 @@ export const AllRuns = () => {
     allRuns.push.apply(allRuns, userIntervals)
     console.log("New All Runs", allRuns)
 
+    allRuns.sort((a, b) => a.date - b.date)
 
     return (
         <div className="allRuns">
