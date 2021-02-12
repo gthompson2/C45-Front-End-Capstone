@@ -19,7 +19,7 @@ export const ShortRuns = () => {
         return run.runType === 2
     })
 
-    shortRuns.sort((a, b) => a.date - b.date)
+    shortRuns.sort((a, b) => b.date - a.date)
 
     return (
         <div className="shortRuns">

@@ -10,7 +10,7 @@ export const Intervals = () => {
         getIntervals()
     }, [])
 
-    userIntervals.sort((a, b) => a.date - b.date)
+    userIntervals.sort((a, b) => b.date - a.date)
 
     return (
         <div className="intervals">

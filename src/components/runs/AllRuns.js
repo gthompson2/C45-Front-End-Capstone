@@ -23,7 +23,7 @@ export const AllRuns = () => {
     // add long/short runs and interval runs to the allRuns array
     allRuns.push.apply(allRuns, userRuns) 
     allRuns.push.apply(allRuns, userIntervals)
-    allRuns.sort((a, b) => a.date - b.date)
+    allRuns.sort((a, b) => b.date - a.date)
 
     return (
         <div className="allRuns">
