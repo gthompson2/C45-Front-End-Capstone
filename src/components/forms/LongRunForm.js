@@ -27,7 +27,6 @@ export const LongRunForm = () => {
 
 
     const handleControlledInputChange = (event) => {
-        console.log("the controlled input was handled")
         /* When changing a state object or array,
         always create a copy, make changes, and then set state.*/
         const newLongRun = {...longRun}
@@ -37,12 +36,9 @@ export const LongRunForm = () => {
         //     selectedVal = parseInt(selectedVal)
         // }
         // selectedVal = parseInt(selectedVal)
-        console.log("event.target.className", event.target.className)
-        console.log("event.target.id", event.target.id)
         newLongRun[event.target.id] = selectedVal
         // update state
         setRuns(newLongRun)
-        console.log(newLongRun)
         
     }
 
@@ -55,7 +51,6 @@ export const LongRunForm = () => {
 
          // Verify that all form sections have been filled
          if (date === "" || distance === "" || pace === "") {
-            console.log(longRun)
             window.alert("Please fill out all form components.")
             // Verify that the distance variable can be converted to a number
         } else if (!parseFloat(distance)) {
@@ -69,11 +64,9 @@ export const LongRunForm = () => {
             window.alert("Please enter a valid date in mm/dd/yyy format.")
         } else if (date.includes("/")) {
             const [month, day, year] = date.split("/")
-            console.log(month, day, year)
             if (!parseInt(month) || !parseInt(day) || !parseInt(year)) {
                 window.alert("Please enter a valid date in mm/dd/yyy format.")
             } else if (parseInt(month) > 12 || parseInt(month) < 1 || parseInt(day) > 31 || parseInt(day) < 1) {
-                console.log("window alert should be going off")
                 window.alert("Please enter a valid date in mm/dd/yyy format.")
             } else {
                 // If all values are entered correctly, reformat them and push to the database

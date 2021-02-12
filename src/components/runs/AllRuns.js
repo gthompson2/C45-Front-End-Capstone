@@ -16,7 +16,6 @@ export const AllRuns = () => {
      * 3. modify the return statement so that if run.distance exists the object is sent to RunCard, but if
      *      run.intervalDist exists the object is sent to IntervalCard
      */
-    console.log("AllRuns", userRuns, userIntervals)
     useEffect(() => {
         getRuns()
     }, [])
@@ -24,8 +23,6 @@ export const AllRuns = () => {
     // add long/short runs and interval runs to the allRuns array
     allRuns.push.apply(allRuns, userRuns) 
     allRuns.push.apply(allRuns, userIntervals)
-    console.log("New All Runs", allRuns)
-
     allRuns.sort((a, b) => a.date - b.date)
 
     return (
