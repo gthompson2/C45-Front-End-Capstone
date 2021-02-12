@@ -9,7 +9,6 @@ let runTypeString = ""
 export const RunCard = ({ run }) => {
     const { deleteRun } = useContext(RunContext)
 
-    console.log("run.date:", run.date)
     if (run.runType === 1) {
         runTypeString = "Long Run"
     } else {
