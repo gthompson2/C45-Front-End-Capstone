@@ -1,6 +1,7 @@
 import React, { useContext, useEffect}from "react"
 import { RunContext } from "./RunProvider"
 import { RunCard } from "./RunCard"
+import "./RunLogs.css"
 import Button from 'react-bootstrap/Button'
 
 
@@ -23,11 +24,13 @@ export const ShortRuns = () => {
 
     return (
         <div className="shortRuns">
+            <div className="runCardBox">
             {
                 shortRuns.map(run => {
                     return <RunCard key={run.id} run={run} />
                 })
             }
+            </div>
             <>
                 <Button href="/forms/ShortRunForm" variant="success">Log Short Run</Button>
             </>

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect}from "react"
 import { RunContext } from "./RunProvider"
 import { RunCard } from "./RunCard"
+import "./RunLogs.css"
 import Button from 'react-bootstrap/Button'
 
 export const LongRuns = () => {
@@ -22,14 +23,16 @@ export const LongRuns = () => {
 
     return (
         <div className="longRuns">
-            {
-                longRuns.map(run => {
-                    return <RunCard key={run.id} run={run} />
-                })
-            }
-            <>
+            <div className="runCardBox">
+                {
+                    longRuns.map(run => {
+                        return <RunCard key={run.id} run={run} />
+                    })
+                }
+            </div>
+            <div>
                 <Button href="/forms/LongRunForm" variant="success">Log Long Run</Button>
-            </>
+            </div>
         </div>
     )
 }

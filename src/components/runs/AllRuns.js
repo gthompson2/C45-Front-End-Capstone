@@ -2,6 +2,7 @@ import React, { useContext, useEffect} from "react"
 import { useHistory } from "react-router-dom"
 import { RunContext, IntervalContext } from "./RunProvider"
 import { RunCard } from "./RunCard"
+import "./RunLogs.css"
 import { IntervalCard } from "./IntervalCard"
 
 export const AllRuns = () => {
@@ -27,6 +28,7 @@ export const AllRuns = () => {
 
     return (
         <div className="allRuns">
+            <div className="runCardBox">
             {
                 allRuns.map(run => {
                     if (run.distance){
@@ -36,6 +38,7 @@ export const AllRuns = () => {
                     }
                 })
             }
+            </div>
         </div>
     )
 
