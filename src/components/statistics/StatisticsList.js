@@ -7,11 +7,13 @@ export const StatisticsList = () => {
     return (
         <div className="statistics">
             <h3>Run Charts</h3>
+            <div className="text-center">
             <ButtonGroup aria-label="Basic example">
                 <Button href="/statistics/longRuns" variant="primary">Long Runs</Button>
                 <Button href="/statistics/shortRuns" variant="primary">Short Runs</Button>
                 <Button href="/statistics/intervals" variant="primary">Intervals</Button>
             </ButtonGroup>
+            </div>
         </div>
     )
 }

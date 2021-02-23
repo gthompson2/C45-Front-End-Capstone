@@ -24,6 +24,7 @@ export const Login = props => {
                 if (exists) {
                     console.log("something happened")
                     localStorage.setItem('runHub_user', exists.id)
+                    localStorage.setItem('user_name', exists.name)
                     history.push("/")
                 } else {
                     existDialog.current.showModal()

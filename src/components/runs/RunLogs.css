@@ -1,4 +1,11 @@
 .runCardBox {
-    height: 450px;
+    height: 26.5em;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.runCard {
+    margin: 2px;
 }

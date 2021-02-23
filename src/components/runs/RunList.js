@@ -17,12 +17,14 @@ export const RunList = () => {
     return (
         <div className="runs">
             <h3>Run Log</h3>
+            <div className="text-center">
             <ButtonGroup aria-label="Basic example">
                 <Button href="/runs/allRuns"variant="primary">All</Button>
                 <Button href="/runs/longRuns" variant="primary">Long Runs</Button>
                 <Button href="/runs/shortRuns" variant="primary">Short Runs</Button>
                 <Button href="/runs/intervals" variant="primary">Intervals</Button>
             </ButtonGroup>
+            </div>
         </div>
             
     )

@@ -9,13 +9,14 @@ export const NavBar = (props) => {
 
     const logOut = () => {
         localStorage.removeItem('runHub_user')
+        localStorage.removeItem('user_name')
         history.go(0)
     }
 
     return (
        <Breadcrumb>
         <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="/runs">Runs</Breadcrumb.Item>
+        <Breadcrumb.Item href="/runs/allRuns">Runs</Breadcrumb.Item>
         <Breadcrumb.Item href="/statistics">Statistics</Breadcrumb.Item>
         <Breadcrumb.Item onClick={logOut} variant="danger">Log Out</Breadcrumb.Item>
        </Breadcrumb>

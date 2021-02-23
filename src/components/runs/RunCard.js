@@ -20,7 +20,7 @@ export const RunCard = ({ run }) => {
     }
 
     return (
-    <div>
+    <div className="runCard">
         <ListGroup horizontal>
             <ListGroup.Item>Date: {(new Date(run.date)).toLocaleDateString('en-US')}</ListGroup.Item>
             <ListGroup.Item>Run Type: {runTypeString}</ListGroup.Item>
